@@ -11,9 +11,15 @@ class CattalogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public $people;
+     public function __construct(){
+        $this->people = new People;
+     }
 
     public function index()
     {
+        dd($this->people->xx());
+
         $people = People::all();
         dd($this->people);
     }
