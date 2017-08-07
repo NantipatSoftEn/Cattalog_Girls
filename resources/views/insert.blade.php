@@ -15,7 +15,7 @@
               <label for=""><h1>Picture</h1></label> <br>
 
               <input type="file" name="fileToUpload" id="fileToUpload">
-              <input type="submit" value="Upload Image" name="submit">
+              
 
               <div class="form-group">
                   <input type="text" class="form-control" name="name" placeholder="Name">

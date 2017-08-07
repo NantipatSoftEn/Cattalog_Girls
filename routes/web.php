@@ -14,10 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('grils', function () {
+Route::get('Test', function () {
     return "Test";
 });
-
+/*
+      Cheak Connnection
+*/
 Route::get('check-connect', function () {
     if (DB::connection()->getDatabaseName()) {
         return "Yes! successfully connected to the DB: " . DB::connection()->getDatabaseName();
@@ -25,4 +27,9 @@ Route::get('check-connect', function () {
         return 'Connection False !!';
     }
 });
-//Route::resource('girls', 'CattalogController');
+
+
+/*
+  Working
+*/
+Route::resource('all', 'CattalogController');
