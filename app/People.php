@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class People extends Model
 {
-    public function xx(){
+    public function getUserByIdAndAddress(){
         echo "xxxx";
     }
+
+
 }
