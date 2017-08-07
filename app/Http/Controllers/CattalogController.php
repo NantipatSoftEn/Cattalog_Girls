@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\People;
 class CattalogController extends Controller
 {
     /**
@@ -11,9 +11,11 @@ class CattalogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //
+        $people = People::all();
+        dd($this->people);
     }
 
     /**
@@ -21,9 +23,9 @@ class CattalogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+      return view('insert');
     }
 
     /**
@@ -34,7 +36,14 @@ class CattalogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $people = new People;
+        $people->name = $request->name;
+        $people->facebook = $request->facebook;
+        $people->rank = $request->rank;
+        $people->save();
+        return back();
+
     }
 
     /**
@@ -56,7 +65,7 @@ class CattalogController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
