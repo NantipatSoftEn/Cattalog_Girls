@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\People;
+
 class CattalogController extends Controller
 {
     /**
@@ -12,9 +13,9 @@ class CattalogController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     /*public $people;
-     public function __construct(){
-        $this->people = new People;
+    /*public $people;
+    public function __construct(){
+       $this->people = new People;
     }*/
 
     public function index()
@@ -32,7 +33,7 @@ class CattalogController extends Controller
      */
     public function create(Request $request)
     {
-      return view('insert');
+        return view('insert');
     }
 
     /**
@@ -48,9 +49,28 @@ class CattalogController extends Controller
         $people->name = $request->name;
         $people->facebook = $request->facebook;
         $people->rank = $request->rank;
+
+
+        //if (isset()&&$request->hasFile('fileToUpload') && $request->file('fileToUpload')->isValid())
+        // dd($request->file('fileToUpload'));
+        if(($request->hasFile('fileToUpload'))){
+        //     //dd($request->file('fileToUpload');
+            try {
+                $file = $request->file('fileToUpload'); // Name form Uploadß
+                $name = time() . '.' . $file->getClientOriginalExtension(); // Get Extension
+
+                $request->file('fileToUpload')->move("image", $name);
+                $people->img = "image/".$name;
+
+            } catch (\Exception $e) {
+                 dd($e);
+            }
+        }
+
+
+
         $people->save();
         return back();
-
     }
 
     /**
@@ -72,7 +92,6 @@ class CattalogController extends Controller
      */
     public function edit($id)
     {
-
     }
 
     /**
