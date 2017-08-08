@@ -145,7 +145,7 @@ class CattalogController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+
         $people = People::find($id)->delete();
 
         return back();
