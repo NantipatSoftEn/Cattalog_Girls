@@ -3,6 +3,7 @@
     <div class="col-md-4">
       <form class="" action="{{ url('all', $people->id) }}" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
+          {{ method_field('PUT') }}
 
 
           <img border="0" alt="" src="{{ url($people->img) }}" class ="img-responsive">

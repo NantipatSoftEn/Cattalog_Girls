@@ -17,11 +17,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Project name</a>
+        <a class="navbar-brand" href="#">Cattalog</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="{{url('all')}}">Home</a></li>
+            <li class="active"><a href="{{url('all/create')}}">Create</a></li>
+
+
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -30,9 +33,31 @@
   </nav>
   <div class="container">
       <div class="row">
-          @yield('content')
+          <div class="col-md-8 col-md-offset-2">
+              @yield('content')
+          </div>
       </div>
   </div>
 </body>
+
+
+<form id="form-delete" method="post">
+    {{ csrf_field() }}
+    {{ method_field('DELETE') }}
+</form>
+<script type="text/javascript">
+    function confirmDelete(msg, url) {
+        if (confirm(msg)) {
+            var element = document.getElementById('form-delete');
+            element.action = url;
+            element.submit();
+            // document.getElementById('form-delete').action = url;
+            // $('form#form-delete').attr('action', url);
+            // $('form#form-delete').submit();
+        } else {
+            alert('Canceled');
+        }
+    }
+</script>
 
 </html>
