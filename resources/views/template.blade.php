@@ -40,7 +40,7 @@
   </div>
 </body>
 
-
+{{--For Form delect--}}
 <form id="form-delete" method="post">
     {{ csrf_field() }}
     {{ method_field('DELETE') }}
@@ -51,7 +51,7 @@
             var element = document.getElementById('form-delete');
             element.action = url;
             element.submit();
-            // document.getElementById('form-delete').action = url;
+
             // $('form#form-delete').attr('action', url);
             // $('form#form-delete').submit();
         } else {

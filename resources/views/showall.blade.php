@@ -31,12 +31,13 @@
 
                     @elseif ($j == 5)               {{--  colum 5 show btn edit+delete  --}}
                         <th>
+
                               <div class="form-group">
                                   <a href="{{ url('all/'.$data[$i][0].'/edit') }}" class="btn btn-primary">Edit</a>
                               </div>
-                              
+
                               <div class="form-group">
-                                    <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('all', $data[$i][0]) }}');" class="btn btn-danger">Edit</a>
+                                    <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('all', $data[$i][0]) }}');" class="btn btn-danger">Del</a>
                               </div>
                               {{-- <form id="form-delete{{ $i }}" action="{{ url('all', $data[$i][0]) }}" method="post" style="display: none;">
                                   {{ csrf_field() }}
