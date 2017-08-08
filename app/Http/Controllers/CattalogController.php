@@ -51,19 +51,18 @@ class CattalogController extends Controller
         $people->rank = $request->rank;
 
 
-        //if (isset()&&$request->hasFile('fileToUpload') && $request->file('fileToUpload')->isValid())
+
         // dd($request->file('fileToUpload'));
-        if(($request->hasFile('fileToUpload'))){
-        //     //dd($request->file('fileToUpload');
+        if (($request->hasFile('fileToUpload'))) {
+            //dd($request->file('fileToUpload');
             try {
-                $file = $request->file('fileToUpload'); // Name form Uploadß
+                $file = $request->file('fileToUpload'); // Name form Upload
                 $name = time() . '.' . $file->getClientOriginalExtension(); // Get Extension
 
                 $request->file('fileToUpload')->move("image", $name);
                 $people->img = "image/".$name;
-
             } catch (\Exception $e) {
-                 dd($e);
+                dd($e);
             }
         }
 
@@ -81,7 +80,10 @@ class CattalogController extends Controller
      */
     public function show($id)
     {
-        //
+        echo "Cheak=".$id;
+        $people = People::find($id);
+
+        return view('show', compact('people'));
     }
 
     /**
@@ -92,6 +94,8 @@ class CattalogController extends Controller
      */
     public function edit($id)
     {
+        $people = People::find($id);
+        return view('edit',compact('people'));
     }
 
     /**
@@ -103,7 +107,9 @@ class CattalogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        /*$people = People::find($id);
+
+        return View('')*/
     }
 
     /**
@@ -114,6 +120,7 @@ class CattalogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $people = People::delete($id);
+        // return
     }
 }
