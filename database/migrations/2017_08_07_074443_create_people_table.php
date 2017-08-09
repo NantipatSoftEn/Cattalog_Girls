@@ -19,6 +19,7 @@ class CreatePeopleTable extends Migration
             $table->string('facebook')->nullable();
             $table->integer('Rank')->nullable();
             $table->string('img')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

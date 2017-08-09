@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class People extends Model
 {
-    public function getUserByIdAndAddress(){
-        echo "xxxx";
-    }
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
+
 
 
 }

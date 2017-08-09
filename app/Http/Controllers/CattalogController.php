@@ -145,10 +145,29 @@ class CattalogController extends Controller
      */
     public function destroy($id)
     {
-
+        // Normal Delects
         $people = People::find($id)->delete();
 
+        //SoftDeletes
+        // $people= People::withTrashed()
+        //         ->where('id', $id)
+
         return back();
-        // return
     }
+    public function restone_all($id)
+    {
+        $people = People::onlyTrashed()->where('id', $id)->first();
+
+        // Check count people
+        if(!empty($people))
+            $people->restore();
+
+        return redirect('all');
+    }
+    /*public function restone_one($id)
+    {
+        App\::withTrashed()
+        ->where('airline_id', 1)
+        ->restore();
+    }*/
 }
