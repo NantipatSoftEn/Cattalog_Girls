@@ -46,11 +46,15 @@
     {{ method_field('DELETE') }}
 </form>
 <script type="text/javascript">
-    function confirmDelete(msg, url) {
+    function confirmDelete(msg, url, action) {
         if (confirm(msg)) {
-            var element = document.getElementById('form-delete');
-            element.action = url;
-            element.submit();
+            if(action == 'restore'){
+                window.location.href = url;
+            }else{
+                var element = document.getElementById('form-delete');
+                element.action = url;
+                element.submit();
+            }
 
             // $('form#form-delete').attr('action', url);
             // $('form#form-delete').submit();

@@ -31,5 +31,5 @@ Route::get('check-connect', function () {
 /*
   Working
 */
-Route::get('all/restone/{id}', 'CattalogController@restone_all');
+Route::get('all/restore/{id}', 'CattalogController@restone_all');
 Route::resource('all', 'CattalogController');

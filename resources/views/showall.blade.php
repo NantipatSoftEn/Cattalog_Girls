@@ -8,7 +8,13 @@
                 $head = ['id', 'Name', 'facebook', 'Rank', 'img','E/D'];
                 $data = [];
                 for ($i=0; $i < count($people); $i++) {
-                    $data[$i]  = [$people[$i]->id,$people[$i]->name,$people[$i]->facebook,$people[$i]->Rank,$people[$i]->img ];
+                    $data[$i]  = [
+                        $people[$i]->id,
+                        $people[$i]->name,
+                        $people[$i]->facebook,
+                        $people[$i]->Rank,
+                        $people[$i]->img,
+                        $people[$i]->deleted_at];
                 }
             ?>
             <tr>
@@ -20,7 +26,7 @@
 
              @for ($i=0; $i < count($data); $i++)
                 <tr>
-                @for ($j=0; $j < 5 + 1; $j++)       {{-- 5 colum data + 1 colum btn --}}
+                @for ($j=0; $j < 5 + 1  ; $j++)       {{-- 5 colum data + 1 colum btn + 1  colum softDeletes --}}
 
                     @if ($j == 4)                   {{--  colum 4 show img --}}
                         <th><img border="0" alt="" src="{{ url($data[$i][$j]) }}" class ="img-responsive"></th>
@@ -35,15 +41,25 @@
                               <div class="form-group">
                                   <a href="{{ url('all/'.$data[$i][0].'/edit') }}" class="btn btn-primary">Edit</a>
                               </div>
+                              @if ($data[$i][$j] != null )
+                                  <div class="form-group">
+                                        <a href="#!restore" onclick="confirmDelete('Are you sure to restore?', '{{ url('all/restore', $data[$i][0]) }}', 'restore');" class="btn btn-warning">Restore</a>
+                                  </div>
+                               @else
+                                  <div class="form-group">
+                                        <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('all', $data[$i][0]) }}', 'delete');" class="btn btn-danger">Delete</a>
+                                  </div>
 
-                              <div class="form-group">
-                                    <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('all', $data[$i][0]) }}');" class="btn btn-danger">Del</a>
-                              </div>
+                              @endif
+
+
+
                               {{-- <form id="form-delete{{ $i }}" action="{{ url('all', $data[$i][0]) }}" method="post" style="display: none;">
                                   {{ csrf_field() }}
                                   {{ method_field('DELETE') }}
                               </form> --}}
                         </th>
+
                     @else
                         <th>{{ $data[$i][$j] }}</th>
                     @endif

@@ -22,7 +22,8 @@ class CattalogController extends Controller
     {
         //dd($this->people->xx());
 
-        $people = People::all();
+        //$people = People::all();
+        $people = People::withTrashed()->get();
 
         return view('showall' ,compact('people'));
     }
