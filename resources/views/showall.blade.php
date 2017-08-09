@@ -26,7 +26,7 @@
 
              @for ($i=0; $i < count($data); $i++)
                 <tr>
-                @for ($j=0; $j < 5 + 1  ; $j++)       {{-- 5 colum data + 1 colum btn + 1  colum softDeletes --}}
+                @for ($j=0; $j < 5 + 1  ; $j++)       {{-- 5 colum data + 1 colum btn --}}
 
                     @if ($j == 4)                   {{--  colum 4 show img --}}
                         <th><img border="0" alt="" src="{{ url($data[$i][$j]) }}" class ="img-responsive"></th>
