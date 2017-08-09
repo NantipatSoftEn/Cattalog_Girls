@@ -37,7 +37,6 @@
 
                     @elseif ($j == 5)               {{--  colum 5 show btn edit+delete  --}}
                         <th>
-
                               <div class="form-group">
                                   <a href="{{ url('all/'.$data[$i][0].'/edit') }}" class="btn btn-primary">Edit</a>
                               </div>
