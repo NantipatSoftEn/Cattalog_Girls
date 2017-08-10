@@ -20,10 +20,14 @@ class CattalogController extends Controller
 
     public function index()
     {
-        //dd($this->people->xx());
 
-        //$people = People::all();
-        $people = People::withTrashed()->get();
+        $people = [];
+
+         // Get Data all
+         $people = array_merge($people, People::get()->toArray());
+
+         // Get Data SoftDeletes Only
+         $people = array_merge($people ,People::onlyTrashed()->get()->toArray());
 
         return view('showall' ,compact('people'));
     }

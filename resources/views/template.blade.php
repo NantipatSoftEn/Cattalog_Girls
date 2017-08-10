@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="{{elixir('css/app.css')}}">
-  <title></title>
+
+  <title>CATTALOG</title>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
     </div>
     <!--/.container-fluid -->
   </nav>
-  <div class="container">
+  <div class="container-fluid">
       <div class="row">
           <div class="col-md-8 col-md-offset-2">
               @yield('content')
