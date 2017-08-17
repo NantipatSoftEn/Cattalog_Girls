@@ -55,9 +55,10 @@ class CattalogController extends Controller
         //dd($request->all());
         /* Validator */
         $validator = Validator::make($request->all(), [
-            'name'       => 'required|string|nullable|max:150',
-            'facebook'   => 'required|string|nullable',
-            'rank'       =>  'required|nullable'
+            'name'       => 'required|string|nullable|max:20',
+            'facebook'   => 'required|string|nullable|max:150',
+            'rank'       =>  'required|nullable|numeric|max:100',
+            'fileToUpload'=> 'required|mimes:jpeg,bmp,png'
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
