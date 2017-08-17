@@ -1,10 +1,18 @@
 @extends('template')
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="col-md-8">
       <form class="" action="{{ url('all') }}" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
           <label for=""><h1>Picture</h1></label> <br>
-
 
           <div class="form-group">
               <input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-default">
@@ -19,7 +27,7 @@
           </div>
 
           <div class="form-group">
-              <input ßtype="text" class="form-control" name="rank" placeholder="Rank">
+              <input type="text" class="form-control" name="rank" placeholder="Rank">
           </div>
 
             <button type="submit" class="btn btn-default">Submit</button>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\People;
+use Validator;
 
 class CattalogController extends Controller
 {
@@ -39,6 +40,7 @@ class CattalogController extends Controller
      */
     public function create(Request $request)
     {
+
         return view('insert');
     }
 
@@ -51,10 +53,20 @@ class CattalogController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
+        /* Validator */
+        $validator = Validator::make($request->all(), [
+            'name'       => 'required|string|nullable|max:150',
+            'facebook'   => 'required|string|nullable',
+            'rank'       =>  'required|nullable'
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
         $people = new People;
         $people->name = $request->name;
         $people->facebook = $request->facebook;
         $people->rank = $request->rank;
+
 
 
 
