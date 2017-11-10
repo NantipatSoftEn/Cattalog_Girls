@@ -16,5 +16,14 @@ php artisan migrate
 ```
 
 ## DEMO
+Insert data
+![Alt text](/images/a.png)
 
-![alt text](https://github.com/NantipatSoftEn/Tondic/blob/master/images/Screen%20Shot%202560-11-10%20at%201.44.54%20PM.png)
+Show data
+![Alt text](/images/b.png)
+
+Edit data
+![Alt text](/images/c.png)
+
+softdelect ( can restone  data)
+![Alt text](/images/d.png)
