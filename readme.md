@@ -17,5 +17,4 @@ php artisan migrate
 
 ## DEMO
 
-[[https://github.com/username/repository/blob/master/img/octocat.png|alt=octocat]]
- Contact a human
+![alt text](https://github.com/NantipatSoftEn/Tondic/blob/master/images/Screen%20Shot%202560-11-10%20at%201.44.54%20PM.png)
